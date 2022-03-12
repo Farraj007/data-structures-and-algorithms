@@ -125,22 +125,37 @@ class  LinkedList:
  
         current = None      
 
-    def InsertAfter(self, prev_node, new_data):
+  
+    def Add_after(self, target_data, new_data):
         """
         This Function will allow you to insert a new node after a node of your choice .
         you shoudl give it to arguments (previous node "using next mutiple times to reach the required"previous node" , 
         new node you want to add after the previous one)
         """
- 
-        if prev_node is None:
-            print("The given previous node must inLinkedList.")
-            return
 
-        new_node = Node(new_data)
+        if not self.head:
+            raise Exception("List is empty")
+        current = self.head
+        while current.next is not None:
+            
+            if current.value == target_data:
+                new_node = Node(new_data)
+                new_node.next = current.next
+                current.next = new_node
+                return
+            current = current.next
 
-        new_node.next = prev_node.next
-
-        prev_node.next = new_node            
+    def Add_before(self, target_data, new_data) -> None:
+        if not self.head:
+            raise Exception("List is empty")
+        current = self.head
+        while current.next is not None:
+            if current.next.value == target_data:
+                new_node = Node(new_data)
+                new_node.next = current.next
+                current.next = new_node
+                return
+            current = current.next                
 
 if __name__ == "__main__":
     ll = LinkedList()
@@ -152,8 +167,10 @@ if __name__ == "__main__":
     [ll.Insert(i) for i in ["IN ASAC", "ALL","We Are"]]
     print(ll.Includes("Mustafa"))
     print(ll.Includes("LTUC"))
-    ll.InsertAfter(ll.head.next.next,"/ LTUC")
     ll.deleteNode("Zaid")
+    ll.Add_after("IN ASAC","/ LTUC")
+    ll.Add_before("IN ASAC","/ LTUC")
+
     
     print(ll)
    

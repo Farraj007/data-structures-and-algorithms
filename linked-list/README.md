@@ -26,3 +26,9 @@ For this, I wanted to make sure I furthered my skills in testing, so I made it a
 
 ### .to_string
   - Returns: a string representing all the values in the Linked List, formatted as: "{ a } -> { b } -> { c } -> NULL"
+
+### .Add_after
+  - Will add a new node after a desired node by choice  .
+  
+### .Add_before
+  - Will add a new node before a desired node by choice  .
