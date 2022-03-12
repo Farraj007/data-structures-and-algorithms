@@ -27,25 +27,23 @@ class  LinkedList:
         return self.to_string()
         
 
-    def Insert(self,value):
+    def Insert(self,value= None):
         """
         This function will always add new nodes in the beginning of the linked list.
         The new node is always added before the head of the given Linked List. And newly added node becomes the new head of the Linked List.
         """
 
-        if  value is None:
-            print('Missing Argument')
-        else:    
-            node = Node(value) 
-        
-            node.next = self.head 
-            self.head = node
-        # self.head = Node(value,next)
-    #   if self.head is None:
-    #       self.head = value
-    #   else:
-    #       value.next = self.head
-    #       self.head = value
+        if value is None:
+            raise Exception('Missing Argument')
+           
+        if not isinstance(value, Node):
+            value = Node(value)
+
+        if self.head is None:
+            self.head = value
+        else:
+          value.next = self.head
+          self.head = value
 
     # def insertAfter(self, prev_node, value):
  
@@ -72,6 +70,7 @@ class  LinkedList:
         {a} -> {b} -> {c} -> NULL
         """ 
         output = ""
+        
 
         if self.head is None:
             output = ('Linked List is EMPTY!')
@@ -118,7 +117,12 @@ if __name__ == "__main__":
     ll = LinkedList()
     
 
-    # ll.Insert(hind)
+    
     [ll.Append(Node(i)) for i in ["Yahya","Emad", "Ammar", "Mustafa","Zaid"]]
+    ll.Insert('barham')
+    [ll.Insert(i) for i in ["All", "IN ASAC","We Are"]]
+    print(ll.Includes("Mustafa"))
+    print(ll.Includes("LTUC"))
+    
     print(ll)
    
