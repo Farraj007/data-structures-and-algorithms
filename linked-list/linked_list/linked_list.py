@@ -45,24 +45,7 @@ class  LinkedList:
           value.next = self.head
           self.head = value
 
-    # def insertAfter(self, prev_node, value):
- 
-    # # 1. check if the given prev_node exists
-    #     if prev_node is None:
-    #         print("The given previous node must inLinkedList.")
-    #         return
- 
-    # # 2. Create new node &
-    # # 3. Put in the data
     
-    # new_node = Node(value)
- 
-    # # 4. Make next of new Node as next of prev_node
-    # new_node.next = prev_node.next
- 
-    # # 5. make next of prev_node as new_node
-    # prev_node.next = new_node
-
 
     def to_string(self):
         """
@@ -99,6 +82,9 @@ class  LinkedList:
                 if current is None:
                     return False
             return False
+
+
+
     def Append(self, node):
         """
         This function inserts a value (Node instance) at 
@@ -111,7 +97,50 @@ class  LinkedList:
             current = self.head
             while current.next is not None:
                 current = current.next
-            current.next = node       
+            current.next = node   
+
+    def deleteNode(self, key):
+        """
+        This function to delete a certain node from the linked list .. using the key argument for things you want to delete
+        """
+         
+        current = self.head
+ 
+        if (current is not None):
+            if (current.value == key):
+                self.head = current.next
+                current = None
+                return
+ 
+        while(current is not None):
+            if current.value == key:
+                break
+            prev = current
+            current = current.next
+ 
+        if(current == None):
+            return
+
+        prev.next = current.next
+ 
+        current = None      
+
+    def InsertAfter(self, prev_node, new_data):
+        """
+        This Function will allow you to insert a new node after a node of your choice .
+        you shoudl give it to arguments (previous node "using next mutiple times to reach the required"previous node" , 
+        new node you want to add after the previous one)
+        """
+ 
+        if prev_node is None:
+            print("The given previous node must inLinkedList.")
+            return
+
+        new_node = Node(new_data)
+
+        new_node.next = prev_node.next
+
+        prev_node.next = new_node            
 
 if __name__ == "__main__":
     ll = LinkedList()
@@ -120,9 +149,11 @@ if __name__ == "__main__":
     
     [ll.Append(Node(i)) for i in ["Yahya","Emad", "Ammar", "Mustafa","Zaid"]]
     ll.Insert('barham')
-    [ll.Insert(i) for i in ["All", "IN ASAC","We Are"]]
+    [ll.Insert(i) for i in ["IN ASAC", "ALL","We Are"]]
     print(ll.Includes("Mustafa"))
     print(ll.Includes("LTUC"))
+    ll.InsertAfter(ll.head.next.next,"/ LTUC")
+    ll.deleteNode("Zaid")
     
     print(ll)
    
