@@ -18,14 +18,14 @@ For this, I wanted to make sure I furthered my skills in testing, so I made it a
 ### .Insert 
   - Adds a new node with that value to the head of the list with an O(1) Time performance.
 
-### .Append
-  - Adds a new node with that value to the End of the list with an O(1) Time performance.
-
 ### .Includes 
   - Indicates whether that value exists as a Node’s value somewhere within the list.
 
 ### .to_string
   - Returns: a string representing all the values in the Linked List, formatted as: "{ a } -> { b } -> { c } -> NULL"
+
+### .Append
+  - Adds a new node with that value to the End of the list with an O(1) Time performance.  
 
 ### .Add_after
   - Will add a new node after a desired node by choice  .

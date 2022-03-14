@@ -85,19 +85,7 @@ class  LinkedList:
 
 
 
-    def Append(self, node):
-        """
-        This function inserts a value (Node instance) at 
-        the (end) of the linked list
-        """
-
-        if self.head is None:
-            self.head = node
-        else:
-            current = self.head
-            while current.next is not None:
-                current = current.next
-            current.next = node   
+       
 
     def deleteNode(self, key):
         """
@@ -125,11 +113,24 @@ class  LinkedList:
  
         current = None      
 
+    def Append(self, node):
+        """
+        This function inserts a value (Node instance) at 
+        the (end) of the linked list
+        """
+
+        if self.head is None:
+            self.head = node
+        else:
+            current = self.head
+            while current.next is not None:
+                current = current.next
+            current.next = node
   
     def Add_after(self, target_data, new_data):
         """
         This Function will allow you to insert a new node after a node of your choice .
-        you shoudl give it to arguments (previous node "using next mutiple times to reach the required"previous node" , 
+        you should give it to arguments (previous node "using next mutiple times to reach the required"previous node" , 
         new node you want to add after the previous one)
         """
 
@@ -145,7 +146,11 @@ class  LinkedList:
                 return
             current = current.next
 
-    def Add_before(self, target_data, new_data) -> None:
+    def Add_before(self, target_data, new_data):
+        """
+        This Function will allow you to insert a new node before a node of your choice .
+        you should give it to arguments (the node where you want to add the value before, the value you want to add it )
+        """
         if not self.head:
             raise Exception("List is empty")
         current = self.head
@@ -163,13 +168,13 @@ if __name__ == "__main__":
 
     
     [ll.Append(Node(i)) for i in ["Yahya","Emad", "Ammar", "Mustafa","Zaid"]]
-    ll.Insert('barham')
-    [ll.Insert(i) for i in ["IN ASAC", "ALL","We Are"]]
+    # ll.Insert('barham')
+    # [ll.Insert(i) for i in ["IN ASAC", "ALL","We Are"]]
     print(ll.Includes("Mustafa"))
     print(ll.Includes("LTUC"))
-    ll.deleteNode("Zaid")
+    # ll.deleteNode("Zaid")
     ll.Add_after("IN ASAC","/ LTUC")
-    ll.Add_before("IN ASAC","/ LTUC")
+    ll.Add_before("Zaid","/ LTUC")
 
     
     print(ll)
