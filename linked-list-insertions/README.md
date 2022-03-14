@@ -1,8 +1,18 @@
 # Challenge Summary
-<!-- Description of the challenge -->
+ **Linked list Insertion**
+ Creating :
+### Append method 
+>arguments: new value
+-adds a new node with the given value to the end of the list.
+### insert before
+>arguments: value, new value
+-adds a new node with the given new value immediately before the first node that has the value       specified.
+### insert after
+>arguments: value, new value
+-adds a new node with the given new value immediately after the first node that has the value specified
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![Whiteboard](./WB.jpg)
 
 ## Approach & Efficiency
     `class Node:`
