@@ -28,22 +28,41 @@ class  LinkedList:
         if not self.head:
             raise Exception("List is empty")
         current = self.head
+        
+        # if self.head.value == target_data:
+        #     new_node = Node(new_data)
+        #     new_node.next = self.head
+        #     self.head=new_data
+            
         while current.next is not None:
             
-            if current.value == target_data:
+            if current.value == target_data.value:
                 new_node = Node(new_data)
                 new_node.next = current.next
                 current.next = new_node
                 return
             current = current.next
-
+        else:
+            new_node = Node(new_data)
+            new_node.next = current.next
+            current.next = new_node
+            return
+        
     def Add_before(self, target_data, new_data):
 
         if not self.head:
             raise Exception("List is empty")
+        
         current = self.head
+        print(current)
+        if current.value == target_data.value:
+            new_node = Node(new_data)
+            new_node.next = self.head
+            self.head=new_data
+            return 0   
+            
         while current.next is not None:
-            if current.next.value == target_data:
+            if current.next.value == target_data.value:
                 new_node = Node(new_data)
                 new_node.next = current.next
                 current.next = new_node
@@ -63,6 +82,20 @@ def test_before_after(the_linked_list):
 def test_append_on_the_list(the_linked_list):
     the_linked_list.Append(Node("done"))
     assert str(the_linked_list) == "Yahya -> Emad -> Ammar -> Mustafa -> Zaid -> done -> NULL"
+def test_add_in_between(the_linked_list):
+    the_linked_list.Add_after("Ammar","/ LTUC")
+    assert str(the_linked_list) == "Yahya -> Emad -> Ammar -> / LTUC -> Mustafa -> Zaid -> NULL"
+
+def test_before_before_the_head(the_linked_list):
+    the_linked_list.Add_before("Yahya" ,"LTUC")
+    assert str(the_linked_list) == "LTUC -> Yahya -> Emad -> Ammar -> Mustafa -> Zaid -> NULL"   
+
+def test_after_the_last_node(the_linked_list):
+    the_linked_list.Add_after("Zaid","done")
+    assert str(the_linked_list) == "Yahya -> Emad -> Ammar -> Mustafa -> Zaid -> done -> NULL"    
+
+
+    
 
 
 
@@ -80,3 +113,5 @@ def the_linked_list():
     return ll
 """
 
+if __name__=='__main__':
+   ll. LinkedList.Add_before("Yahya" ,"LTUC")
