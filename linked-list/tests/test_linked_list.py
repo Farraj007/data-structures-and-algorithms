@@ -39,6 +39,18 @@ def test_append_on_the_list(the_linked_list):
     the_linked_list.Append(Node("done"))
     assert str(the_linked_list) == "Yahya -> Emad -> Ammar -> Mustafa -> Zaid -> done -> NULL"
 
+def test_add_in_between(the_linked_list):
+    the_linked_list.Add_after("Ammar","/ LTUC")
+    assert str(the_linked_list) == "Yahya -> Emad -> Ammar -> / LTUC -> Mustafa -> Zaid -> NULL"
+
+def test_before_before_the_head(the_linked_list):
+    the_linked_list.Add_before("Yahya" ,"LTUC")
+    assert str(the_linked_list) == "LTUC -> Yahya -> Emad -> Ammar -> Mustafa -> Zaid -> NULL"   
+
+def test_after_the_last_node(the_linked_list):
+    the_linked_list.Add_after("Zaid","done")
+    assert str(the_linked_list) == "Yahya -> Emad -> Ammar -> Mustafa -> Zaid -> done -> NULL"    
+
 
 
 

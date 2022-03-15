@@ -93,7 +93,9 @@ class  LinkedList:
         """
          
         current = self.head
- 
+        if not isinstance(key, Node):
+            key = Node(key)
+
         if (current is not None):
             if (current.value == key):
                 self.head = current.next
@@ -118,6 +120,8 @@ class  LinkedList:
         This function inserts a value (Node instance) at 
         the (end) of the linked list
         """
+        if not isinstance(node, Node):
+            node = Node(node)
 
         if self.head is None:
             self.head = node
@@ -133,29 +137,49 @@ class  LinkedList:
         you should give it to arguments (previous node "using next mutiple times to reach the required"previous node" , 
         new node you want to add after the previous one)
         """
+        if not isinstance(target_data, Node):
+            target_data = Node(target_data)
 
         if not self.head:
             raise Exception("List is empty")
         current = self.head
+        
         while current.next is not None:
-            
-            if current.value == target_data:
+           
+            if current.value == target_data.value:
                 new_node = Node(new_data)
                 new_node.next = current.next
                 current.next = new_node
                 return
             current = current.next
-
+        else:
+            new_node = Node(new_data)
+            new_node.next = current.next
+            current.next = new_node
+            return
+        
     def Add_before(self, target_data, new_data):
         """
         This Function will allow you to insert a new node before a node of your choice .
         you should give it to arguments (the node where you want to add the value before, the value you want to add it )
         """
+        if not isinstance(target_data, Node):
+            target_data = Node(target_data)
+
         if not self.head:
             raise Exception("List is empty")
         current = self.head
+        print (current.value)
+        print(new_data)
+        if current.value == target_data.value:
+            
+            new_node = Node(new_data)
+            new_node.next = self.head
+            self.head=new_node
+            return 0  
+         
         while current.next is not None:
-            if current.next.value == target_data:
+            if current.next.value == target_data.value:
                 new_node = Node(new_data)
                 new_node.next = current.next
                 current.next = new_node
@@ -165,17 +189,13 @@ class  LinkedList:
 if __name__ == "__main__":
     ll = LinkedList()
     
-
-    
     [ll.Append(Node(i)) for i in ["Yahya","Emad", "Ammar", "Mustafa","Zaid"]]
     # ll.Insert('barham')
     # [ll.Insert(i) for i in ["IN ASAC", "ALL","We Are"]]
-    print(ll.Includes("Mustafa"))
-    print(ll.Includes("LTUC"))
+    # print(ll.Includes("Mustafa"))
+    # print(ll.Includes("LTUC"))
     # ll.deleteNode("Zaid")
-    ll.Add_after("IN ASAC","/ LTUC")
-    ll.Add_before("Zaid","/ LTUC")
+    # ll.Add_before("Yahya" ,"LTUC")
+    ll.Add_after("Zaid","/ LTUC")
 
-    
     print(ll)
-   
