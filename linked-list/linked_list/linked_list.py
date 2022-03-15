@@ -169,8 +169,7 @@ class  LinkedList:
         if not self.head:
             raise Exception("List is empty")
         current = self.head
-        print (current.value)
-        print(new_data)
+        
         if current.value == target_data.value:
             
             new_node = Node(new_data)
@@ -185,17 +184,42 @@ class  LinkedList:
                 current.next = new_node
                 return
             current = current.next                
-
+    def kthFromEnd(self, k):
+        len = 0
+        curr = self.head
+    
+        while curr:
+            curr = curr.next
+            len += 1
+            
+        if k >= 0:
+            if len > k:
+                curr = self.head
+            
+                for _ in range(len - (k+1)):
+                    curr = curr.next 
+            else:
+                raise  Exception ('The Index provided is Not Found')
+        else:
+            raise Exception('Please Provide Positive Integar For The Search')      
+            
+                
+        return curr
+       
+             
+            
+                
 if __name__ == "__main__":
     ll = LinkedList()
     
-    [ll.Append(Node(i)) for i in ["Yahya","Emad", "Ammar", "Mustafa","Zaid"]]
+    [ll.Append(i) for i in ["Yahya","Emad", "Ammar", "Mustafa","Zaid"]]
     # ll.Insert('barham')
     # [ll.Insert(i) for i in ["IN ASAC", "ALL","We Are"]]
     # print(ll.Includes("Mustafa"))
     # print(ll.Includes("LTUC"))
     # ll.deleteNode("Zaid")
     # ll.Add_before("Yahya" ,"LTUC")
-    ll.Add_after("Zaid","/ LTUC")
-
+    # ll.Add_after("Zaid","/ LTUC")
+    print(ll.kthFromEnd(0))
+    
     print(ll)

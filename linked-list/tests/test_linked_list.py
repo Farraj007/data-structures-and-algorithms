@@ -1,3 +1,4 @@
+from asyncio import streams
 from linked_list.linked_list import LinkedList ,Node
 import pytest
 
@@ -51,9 +52,26 @@ def test_after_the_last_node(the_linked_list):
     the_linked_list.Add_after("Zaid","done")
     assert str(the_linked_list) == "Yahya -> Emad -> Ammar -> Mustafa -> Zaid -> done -> NULL"    
 
+def test_k_greater(the_linked_list):
+    with pytest.raises(Exception):
+        the_linked_list.kthFromEnd(6)
+def test_k_same_length_of_linkedlist(the_linked_list):
+    kth=the_linked_list.kthFromEnd(4)
+    assert str(kth) ==  "Yahya"    
 
+def test_k_negative(the_linked_list):
+    with pytest.raises(Exception):
+        the_linked_list.kthFromEnd(-1)    
 
-
+def test_k_linkedlist_of1():
+    ll_of1 = LinkedList()
+    ll_of1.Append("Me")
+    kth=ll_of1.kthFromEnd(0)
+    assert str(kth)=="Me"
+    
+def test_k_middle_of_linkedlist(the_linked_list):
+    kth=the_linked_list.kthFromEnd(2)
+    assert str(kth) ==  "Ammar"
 
 # ======
 # Fixtures
@@ -64,4 +82,6 @@ def test_after_the_last_node(the_linked_list):
 def the_linked_list():
     ll = LinkedList()
     [ll.Append(Node(i)) for i in ["Yahya","Emad", "Ammar", "Mustafa", "Zaid"]]
+    list=["Yahya","Emad", "Ammar", "Mustafa", "Zaid"]
+
     return ll
