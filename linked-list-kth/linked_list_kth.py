@@ -19,8 +19,8 @@ class  LinkedList:
         
             while curr:
                 curr = curr.next
-                
                 n += 1
+                      
             if k > 0:
                 if n > k:
                     curr = self.head
@@ -34,6 +34,7 @@ class  LinkedList:
                 
                     
             return curr
+        
 # def test_k_greater(the_linked_list):
 #     with pytest.raises(Exception):
 #         the_linked_list.kthFromEnd(6)

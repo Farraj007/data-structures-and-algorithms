@@ -1,4 +1,4 @@
-from logging import exception
+from ast import Pass
 
 
 class Node:
@@ -46,7 +46,6 @@ class  LinkedList:
           self.head = value
 
     
-
     def to_string(self):
         """
         This method converts the object of The linked list to a string in the shape of 
@@ -82,10 +81,6 @@ class  LinkedList:
                 if current is None:
                     return False
             return False
-
-
-
-       
 
     def deleteNode(self, key):
         """
@@ -183,7 +178,8 @@ class  LinkedList:
                 new_node.next = current.next
                 current.next = new_node
                 return
-            current = current.next                
+            current = current.next  
+                          
     def kthFromEnd(self, k):
         len = 0
         curr = self.head
@@ -205,8 +201,41 @@ class  LinkedList:
             
                 
         return curr
-       
-             
+    
+    @staticmethod
+    def linkedListZip(List1,List2):
+        
+        if not isinstance(List1, LinkedList) or not isinstance(List2, LinkedList):
+            raise Exception("Not inserting LinkedLists")
+            
+        if List1.head is None and List2.head is None:
+            return None
+            
+        List1_curr = List1.head
+        List2_curr = List2.head
+ 
+        while List1_curr != None and List2_curr != None:
+
+            List1_next = List1_curr.next             
+            List2_next = List2_curr.next
+            
+            List2_curr.next = List1_next  
+            List1_curr.next = List2_curr
+            
+            
+            List1_curr = List1_next
+            List2_curr = List2_next
+            List2.head = List2_curr
+        if List2_curr is not None:
+            List1.Append(List2_curr)  
+    
+        return List1
+        
+        
+              
+        
+            
+                 
             
                 
 if __name__ == "__main__":
@@ -220,6 +249,19 @@ if __name__ == "__main__":
     # ll.deleteNode("Zaid")
     # ll.Add_before("Yahya" ,"LTUC")
     # ll.Add_after("Zaid","/ LTUC")
-    print(ll.kthFromEnd(0))
+    # print(ll.kthFromEnd(0))
     
+    ll2 = LinkedList()
+    
+    [ll2.Append(i) for i in ["5","4", "3", "2","1"]]
+    # # print(ll)
+    # ll.linkedListZip(ll,ll2)
+    # print(ll)
+    # ll1=LinkedList()
+    # ll1.Append('Yahya')
+    # ll1.Append('ME')
+    # ll1.Append(':::::')
+    # ll2 = LinkedList()
+    # [ll2.Append(i) for i in ["5",'4']]  
+    ll.linkedListZip(ll,ll2)
     print(ll)
