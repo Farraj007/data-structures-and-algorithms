@@ -204,7 +204,10 @@ class  LinkedList:
     
     @staticmethod
     def linkedListZip(List1,List2):
+        """
+        This method will takes two linked lists as arguments and will connect them in a zpping pattern.
         
+        """
         if not isinstance(List1, LinkedList) or not isinstance(List2, LinkedList):
             raise Exception("Not inserting LinkedLists")
             

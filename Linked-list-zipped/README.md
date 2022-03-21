@@ -1,9 +1,10 @@
 # Challenge Summary
  **Linked list**
  Creating :
-### Kth from end method 
->arguments: k
--Search for the kth index from the linked list in a back order and rerurn the value of that node.
+### zip Linked List Method 
+>arguments: List1, List2
+-Takes two linked lists and connect them together in a certain way . zip method.
+
 
 
 ## Whiteboard Process
