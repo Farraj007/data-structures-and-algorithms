@@ -44,54 +44,35 @@ class  LinkedList:
         List2_curr = List2.head
  
         while List1_curr != None and List2_curr != None:
+            List1.Add_after(List1_curr,List2_curr)
+            List1_curr=List1_curr.next.next 
+            List2_curr=List2_curr.next
 
-            List1_next = List1_curr.next             
-            List2_next = List2_curr.next
+            # List1_next = List1_curr.next             
+            # List2_next = List2_curr.next
             
-            List2_curr.next = List1_next  
-            
-            List1_curr.next = List2_curr
+            # List2_curr.next = List1_next  
+    
+            # List1_curr.next = List2_curr
             
  
-            List1_curr = List1_next
-            List2_curr = List2_next
-            List2.head = List2_curr
+            # List1_curr = List1_next
+            # List2_curr = List2_next
+            # List2.head = List2_curr
         if List2_curr is not None:
             List1.Append(List2_curr)  
     
-        return List1    
+        return List1   
 
-def test_LinkedList_zipped(the_linked_list):
-    ll2 = LinkedList()
-    [ll2.Append(i) for i in ["5","4", "3", "2","1"]]   
-    the_linked_list.linkedListZip(the_linked_list,ll2)
-    assert str(the_linked_list) == "Yahya -> 5 -> Emad -> 4 -> Ammar -> 3 -> Mustafa -> 2 -> Zaid -> 1 -> NULL"
-    
-
-def test_LinkedList_zipped_list_of1(the_linked_list):
-    ll2 = LinkedList()
-    [ll2.Append(i) for i in ["5"]]   
-    the_linked_list.linkedListZip(the_linked_list,ll2)
-    assert str(the_linked_list) == "Yahya -> 5 -> Emad -> Ammar -> Mustafa -> Zaid -> NULL"
-
-def test_LinkedList_zipped_list_bigger_than_the_first():
-    ll1=LinkedList()
-    ll1.Append('Yahya')
-    ll2 = LinkedList()
-    [ll2.Append(i) for i in ["5",'4','3']]   
-    ll1.linkedListZip(ll1,ll2)
-    assert str(ll1) == "Yahya -> 5 -> 4 -> 3 -> NULL"    
-
-# ======
-# Fixtures
-# ======
-# // Aspired and adviced from my collegue Mustafa al Hasannat
-
-@pytest.fixture
-def the_linked_list():
+if __name__ == '__main__':
     ll = LinkedList()
     [ll.Append(Node(i)) for i in ["Yahya","Emad", "Ammar", "Mustafa", "Zaid"]]
-    list=["Yahya","Emad", "Ammar", "Mustafa", "Zaid"]
+    
+    list=LinkedList()
+    [list.Append(Node(i)) for i in ["1","2", "3", "4", "5"]]
+    ll.linkedListZip(ll,list)
+    print(ll)
+    
 
-    return ll
+    
             

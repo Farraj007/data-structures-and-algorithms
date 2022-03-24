@@ -1,4 +1,4 @@
-from Linked_List_Zipped import LinkedList ,Node
+from Linked import LinkedList ,Node
 
 def test_LinkedList_zipped(the_linked_list):
     ll2 = LinkedList()

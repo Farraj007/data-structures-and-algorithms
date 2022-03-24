@@ -218,7 +218,10 @@ class  LinkedList:
         List2_curr = List2.head
  
         while List1_curr != None and List2_curr != None:
-
+            # List1.Add_after(List1_curr,List2_curr)
+            # List1_curr=List1_curr.next.next
+            # List2_curr=List2_curr.next
+            
             List1_next = List1_curr.next             
             List2_next = List2_curr.next
             
@@ -244,7 +247,7 @@ class  LinkedList:
 if __name__ == "__main__":
     ll = LinkedList()
     
-    [ll.Append(i) for i in ["Yahya","Emad", "Ammar", "Mustafa","Zaid"]]
+    [ll.Append(i) for i in ["Yahya","Emad", "Ammar", "Mustafa"]]
     # ll.Insert('barham')
     # [ll.Insert(i) for i in ["IN ASAC", "ALL","We Are"]]
     # print(ll.Includes("Mustafa"))
