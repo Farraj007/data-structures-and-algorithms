@@ -43,3 +43,11 @@ Defining the classes for each data sturcture startin with the Class Node , Class
 ### .is_empty
   - Will check if the stack is empty of not and return a boolen
   
+
+  ### Stacks and Queues
+
+- [x] Push
+- [x] Pop
+- [x] Peek
+- [x] is_empty
+-
