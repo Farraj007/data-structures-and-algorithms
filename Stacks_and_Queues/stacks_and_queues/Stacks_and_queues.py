@@ -1,13 +1,25 @@
-from black import out
-
 
 class Node:
+    """
+    This class for structring the node .
+
+    The Node  consists of a 'value' that holds 
+    the node's value, and a 'next' that holds the 
+    address of the next node
+
+    """
     def __init__(self, value):
         self.value  = value
         self.next = None
         
         
 class Stack:
+    """
+    Implementation of Stack ADT based on Py's list.
+    For the most efficient ordering, we let the end of the list represent the top of the stack and the front
+    represent the base.As the stack grows,items are appended to the end of the list and when items are poppe
+    d,they are removed from the same end.
+    """
     def __init__(self, node = None):
         self.top = node   
          
@@ -15,6 +27,9 @@ class Stack:
         return self.to_string()    
     
     def to_string(self):
+        """
+        Function to simulate how the Stack will Show 
+        """
         output = ""
     
         if self.top is None:
@@ -28,16 +43,21 @@ class Stack:
         return output
 
     def push(self, value):
+        """
+        This funcrion will add a value on the top of the stack .. to stac
+
+        """
         
         if not isinstance(value, Node):
             node = Node(value)
-            
-        # node = Node(value)  
+             
         node.next = self.top 
         self.top = node  
         
     def pop(self): 
-                
+        """
+        This function will remove the top node on the stack .. by making the top for the next value and assign the previous top to none 
+        """       
         temp = self.top  
         if temp:
             self.top = self.top.next 
@@ -49,6 +69,10 @@ class Stack:
             raise Exception('The stack is empty')
           
     def peek(self):
+        """
+        This function will return the value of the Next Top Node if availbe if not will return the value of the top it self .
+        Error will raises if the stack is empty
+        """
         ref= self.top
         if ref is None:
             raise Exception('There is no Top Value')
@@ -65,6 +89,10 @@ class Stack:
         return self.top == None    
     
 class Queue:
+    """
+    Queue is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends.
+    One end is always used to insert data (enqueue) and the other is used to remove data (dequeue).
+    """
     def __init__(self):
         self.front=None
         self.rear=None
@@ -73,6 +101,9 @@ class Queue:
         return self.to_string()    
     
     def to_string(self):
+        """
+        Function to simulate how the Queue will Show 
+        """
         output = "|| "
     
         if (self.front and self.rear) is None:
@@ -86,6 +117,11 @@ class Queue:
             return output[::-1]
         
     def enqueue(self,value):
+        """
+        This function will always add new nodes in the  Queue.
+        The new node is always added before the last"rear" element of the given Queue.
+       
+        """
         
         if not isinstance(value, Node):
             node = Node(value)
@@ -97,7 +133,12 @@ class Queue:
             self.rear.next=node 
             self.rear= node
             
-    def dequeue(self) :   
+    def dequeue(self) :  
+        """
+        This function will always remove the front nodes in the  Queue.
+        The removed node is always removed from the head"front" element of the given Queue.
+       
+        """ 
         temp = self.front        
         
         self.front = self.front.next 
@@ -107,7 +148,10 @@ class Queue:
         return temp.value
     
     def peek(self):
-        
+        """
+        This function will return the value of the Head Node /The front value.
+        Error will raises if the queue is empty
+        """
         if self.front:
             return self.front.value 
         else:
@@ -121,13 +165,13 @@ class Queue:
         
 if __name__ == '__main__':
     
-    # stack = Stack()
-    # # print(stack.is_empty())
-    # [stack.push(i) for i in ['!','There','Hi','Barham ,']]
-    # print(stack)
-    # print('The top is :',stack.peek())
-    # print('i popped:',stack.pop())
-    # print('is it empty ?',stack.is_empty())
+    stack = Stack()
+    # print(stack.is_empty())
+    [stack.push(i) for i in ['!','There','Hi','Barham ,']]
+    print(stack)
+    print('The top is :',stack.peek())
+    print('i popped:',stack.pop())
+    print('is it empty ?',stack.is_empty())
     
     queue = Queue()
     [queue.enqueue(i) for i in [1,2,3,4]] 
