@@ -38,10 +38,10 @@ class psuedoQueue:
  
 if __name__ == '__main__':
     q = psuedoQueue()
-    print(q.enqueue('hi'))
+    q.enqueue('hi')
     q.enqueue('there')
     q.enqueue('!')
  
-    # print(q.dequeue())
-    # print(q.dequeue())
-    # print(q.dequeue())    
+    print(q.dequeue())
+    print(q.dequeue())
+    print(q.dequeue())    
