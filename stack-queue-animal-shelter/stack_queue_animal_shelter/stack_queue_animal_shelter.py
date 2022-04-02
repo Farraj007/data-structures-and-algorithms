@@ -117,13 +117,10 @@ class AnimalShelter:
 
     def __init__(self):
         self.shelter = Queue()
-        self.dog = Dog()
-        self.cat = Cat()
-        
-
+      
     def __str__(self):
-        return f'{self.shelter}'
-
+        return f"{self.shelter}"
+  
     def enqueue(self,animal):
         """
         enqueue method takes in one argument that inserts an animal object into the queue 
@@ -136,43 +133,54 @@ class AnimalShelter:
 
 
 
-    def dequeue(self,pref='lizard'):
+    def dequeue(self,pref=''):
         """
         dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
         if it doesnt it will return the longest stayed animal
         """
-
-        if pref != 'cat' and pref != 'dog':
-
+        if self.shelter.is_empty():
+                raise Exception ('Animal Shelter is empty') 
+            
+        if pref.lower() == 'dog':
+            pref=Dog()     
+        elif pref.lower() == 'cat':
+            pref = Cat() 
+                 
+        if str(pref) not in ["cat", "dog"]:
+            
             if not self.shelter.is_empty():
-                return self.shelter.dequeue() 
+                
+                return self.shelter.dequeue()
             else:
                 raise Exception ('Animal Shelter is empty')
-
-         
-        c = 0 
-        while (c < (self.shelter).__sizeof__()):
-
-            if str(self.shelter.peek()) == pref:
-
-                return self.shelter.dequeue()
-
-            else:
-                self.shelter.enqueue(self.shelter.dequeue())
-            c +=1
-
-        if self.shelter.is_empty():
-            raise Exception ('Animal Shelter is empty') 
-       
-        else:
-            raise Exception (f'Animal Shelter does not have {pref}') 
-
-
-
+            
+        if str(self.shelter.peek()) == str(pref):
+            return self.shelter.dequeue()
+        
+        prev = None
+        current = self.shelter.front
+        
+        while current:
+            
+            if str(current.value) == str(pref):
+                prev.next = current.next
+                current.next = None   
+                return current.value
+            prev = current
+            current = current.next
+            
+    def peek(self):
+        return self.shelter.peek()            
+        
 if __name__ == '__main__':
 
 
     animal = AnimalShelter()
-    [animal.enqueue(i) for i in [Dog(),Cat(),Cat()]]
-    animal.dequeue()
+    [animal.enqueue(i) for i in [Dog(),Cat(),Cat(),Dog(),Cat(),Dog()]]
+    # animal.dequeue()
     print(animal)
+    # animal.dequeue()
+    animal.dequeue('lizard')
+    # animal.dequeue('cat')
+    print(animal.peek())
+    
