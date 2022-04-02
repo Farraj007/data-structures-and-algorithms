@@ -1,8 +1,5 @@
 # Stack Queue Animal Shelter
 
-> [Back to main](../../README.md)
-
----
 
 # Challenge Summary
 
