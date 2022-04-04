@@ -8,8 +8,8 @@ Problem Domain: Write a function called validate brackets that will take in a st
 
 [tests](./tests/test_stack_queue_brackets.py)
 # Whiteboard 
-![image](./brackets.png)   
- 
+  
+
 # Approach & Efficiency
 
 Big O Space: O(n) Time: O(n)
