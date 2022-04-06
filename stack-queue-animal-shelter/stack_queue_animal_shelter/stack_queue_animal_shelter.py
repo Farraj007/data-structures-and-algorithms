@@ -172,6 +172,7 @@ class AnimalShelter:
     def peek(self):
         return self.shelter.peek()            
         
+        
 if __name__ == '__main__':
 
 
@@ -180,7 +181,7 @@ if __name__ == '__main__':
     # animal.dequeue()
     print(animal)
     # animal.dequeue()
-    animal.dequeue('lizard')
-    # animal.dequeue('cat')
-    print(animal.peek())
+    # animal.dequeue('lizard')
+    animal.dequeue('cat')
+    print(animal)
     

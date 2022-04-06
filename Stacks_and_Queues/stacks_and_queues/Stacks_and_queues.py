@@ -86,8 +86,9 @@ class Stack:
         """
         checks weather the stack is empty -- returns true if its empty
         """
-        return self.top == None    
+        return self.top == None  
     
+  
 class Queue:
     """
     Queue is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends.
@@ -96,7 +97,7 @@ class Queue:
     def __init__(self):
         self.front=None
         self.rear=None
-        
+        self.len=0
     def __str__(self):    
         return self.to_string()    
     
@@ -114,7 +115,7 @@ class Queue:
                 output += f'{current.value} '
                 current = current.next   
             output += '||'
-            return output[::-1]
+            return output
         
     def enqueue(self,value):
         """
@@ -129,9 +130,11 @@ class Queue:
         if self.front is None:
             self.front = node
             self.rear=node
+            self.len+=1
         else:
             self.rear.next=node 
             self.rear= node
+            self.len+=1
             
     def dequeue(self) :  
         """
@@ -144,7 +147,7 @@ class Queue:
         self.front = self.front.next 
         
         temp.next = None  
-        
+        self.len -=1
         return temp.value
     
     def peek(self):
@@ -161,24 +164,106 @@ class Queue:
         """
         checks weather the stack is empty -- returns true if its empty
         """
-        return self.front == None  
+        return self.front == None 
+    
+def DuckDuckGoose(list,k):
+    queue =  Queue()
+    [queue.enqueue(i) for i in list ]
+    # queue2=Queue()
+    print('1',queue)
+    counter=0
+    
+    while queue.len > 1:
+        counter +=1
+        if counter != int(k) and not queue.is_empty(): 
+            queue.enqueue(queue.dequeue())
+            print(queue)
+           
+        elif counter == int(k) and not queue.is_empty():
+            queue.dequeue() 
+            counter = 0   
+                  
+        elif queue.is_empty():
+            raise Exception ('The Queue is Empty')
+        
+    return queue    
+     
+    
+         
+    
+def validateBrackets(string):
+    
+        """
+        This function will validate the brackets from a string if it's balanced or not .
+        and return a boolean of the answer.
+        """
+        stack = Stack()
+        dictionary = {'{': '}', '(': ')', '[': ']'}
+        if type(string) != str:
+            raise Exception('Bracket Validator works only strings')
+        
+        for char in string:
+            if char in '{[(':
+                stack.push(char)
+            elif char in '}])':
+                if dictionary[stack.pop()] != char:
+                    return False
+        if stack.is_empty():
+            return True
+        else:
+            return False
+        
+def getMax(list):
+    stack = Stack()
+    [stack.push(i) for i in list if type(i) == int]
+    if not stack.top:
+        raise Exception("The stack is empty")
+    max=stack.top.value
+    temp=stack.top.next
+
+    while temp:
+        if temp.value>max:
+            max=temp.value
+        temp=temp.next
+    if max:
+        print(max)
+        return max
+    else:
+        raise Exception("The stack has no numeric values")   
         
 if __name__ == '__main__':
     
-    stack = Stack()
-    # print(stack.is_empty())
-    [stack.push(i) for i in ['!','There','Hi','Barham ,']]
-    print(stack)
-    print('The top is :',stack.peek())
-    print('i popped:',stack.pop())
-    print('is it empty ?',stack.is_empty())
+    getMax([1,5,50,20,-60,'barham'])
+    # print(getMax())
+    # a=['a','b','c','d','e']
+    #DuckDuckGoose(a,3)
+    # print(DuckDuckGoose(a,3))
     
-    queue = Queue()
-    [queue.enqueue(i) for i in [1,2,3,4]] 
-    print(queue)
-    print('the front is:',queue.peek())
-    print('i removed:',queue.dequeue())
+    # pseudo = psuedoQueue()
+    # # [psuedo.enqueue for i in [1,2,3]]
+    # pseudo.front = Node(1)
+    # pseudo.front.next = Node(2)
+    # pseudo.front.next.next = Node(3)
+    # pseudo.dequeue() 
+    # print(pseudo.peek())
+    # exp="{()}"
+    # if validateBrackets(exp):
+    #     print('TRUE')
+    # else:
+    #     print('False')    
     
-    print('is it empty?',queue.is_empty())
+    # # print(stack.is_empty())
+    # [stack.push(i) for i in ['!','There','Hi','Barham ,']]
+    # print(stack)
+    # print('The top is :',stack.peek())
+    # print('i popped:',stack.pop())
+    # print('is it empty ?',stack.is_empty())
     
+    # queue = Queue()
+    # [queue.enqueue(i) for i in [1,2,3,4]] 
+    # print(queue)
+    # print('the front is:',queue.peek())
+    # print('i removed:',queue.dequeue())
+    
+    # print('is it empty?',queue.is_empty())
     

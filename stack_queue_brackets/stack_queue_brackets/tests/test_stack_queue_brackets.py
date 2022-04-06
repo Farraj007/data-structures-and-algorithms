@@ -17,6 +17,7 @@ def test_validate_false():
     assert validate_brackets('{(})') == False
     assert validate_brackets('{') == False
     assert validate_brackets('(') == False
+    assert validate_brackets(')') == False
     
 def test_validate_error():
     
