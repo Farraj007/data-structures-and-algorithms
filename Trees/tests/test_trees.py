@@ -19,6 +19,10 @@ def test_contains_theTree(searchTree):
     assert searchTree.contains(11) == False
     assert searchTree.contains(322) == False
 
+def test_maximum_value(searchTree):
+    assert searchTree.find_maximum() == 200
+    with pytest.raises(Exception):
+        BinaryTreeSearch.find_maximum()
 
 @pytest.fixture
 def theTree():

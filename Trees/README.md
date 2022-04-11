@@ -17,7 +17,8 @@ Define a method for each of the depth first traversals:
 ## Approach & Efficiency
 - Add -- Big O(log(n)) time and O(1) space using a while loop
 - Contains-- Big O(log(n)) time and O(1) space by calling on of the order methods and search in the return if value is found or not 
-- pre order, in_order post_order -- Big O(n) time and O(n) space using recursion
+- pre order, in_order ,post_order -- Big O(n) time and O(n) space using recursion
+- Maximum_value -- Big O(n) time and O(1) .
 
 ## API
 
@@ -58,6 +59,7 @@ contains:
 - [x] pre_order method
 - [x] in_order method
 - [x] post_order method
+---
 - [x] Add method
 - [x] Contains method
  
