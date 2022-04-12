@@ -172,8 +172,7 @@ class BinaryTreeSearch(BinaryTree):
         if type(value) !=str:
             value = str(value)
         
-        return True if value in self.in_order() else False
-        
+        return True if value in self.in_order() else False        
 if __name__ == "__main__":    
     node1 = TNode(1)
     node2 = TNode(2)

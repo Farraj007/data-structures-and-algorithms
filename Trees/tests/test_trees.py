@@ -3,9 +3,13 @@ import pytest
 
 def test_in_order(theTree):
     assert theTree.in_order() == 'D B E G A F C '
-    
+    with pytest.raises(Exception):
+        BinaryTree.in_order()
+        
 def test_pre_order(theTree):
     assert theTree.pre_order() == 'A B D E G C F '
+    with pytest.raises(Exception):
+        BinaryTree.pre_order()
 
 def test_post_order(theTree):
     assert theTree.post_order() == 'D G E B F C A '
@@ -22,8 +26,22 @@ def test_contains_theTree(searchTree):
 def test_maximum_value(searchTree):
     assert searchTree.find_maximum() == 200
     with pytest.raises(Exception):
-        BinaryTreeSearch.find_maximum()
-
+        BinaryTree.find_maximum()
+def test_Exceptions():
+    tree=BinaryTree()
+    with pytest.raises(Exception):
+        tree.pre_order()
+    with pytest.raises(Exception):
+        tree.in_order()
+    with pytest.raises(Exception):
+        tree.post_order()
+    with pytest.raises(Exception):
+        tree.find_maximum()()
+    # assert tree.pre_order() == 'Tree is empty'
+    # assert tree.in_order() == 'Tree is empty'
+    # assert tree.post_order() == 'Tree is empty'
+    # assert BinaryTree.find_maximum() == 'Tree is empty'
+    
 @pytest.fixture
 def theTree():
     node1 = TNode("A")
