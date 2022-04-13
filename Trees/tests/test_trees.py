@@ -27,6 +27,7 @@ def test_maximum_value(searchTree):
     assert searchTree.find_maximum() == 200
     with pytest.raises(Exception):
         BinaryTree.find_maximum()
+        
 def test_Exceptions():
     tree=BinaryTree()
     with pytest.raises(Exception):
@@ -36,11 +37,11 @@ def test_Exceptions():
     with pytest.raises(Exception):
         tree.post_order()
     with pytest.raises(Exception):
-        tree.find_maximum()()
-    # assert tree.pre_order() == 'Tree is empty'
-    # assert tree.in_order() == 'Tree is empty'
-    # assert tree.post_order() == 'Tree is empty'
-    # assert BinaryTree.find_maximum() == 'Tree is empty'
+        tree.find_maximum()
+def test_breadthtraverse(theTree):
+    assert theTree.breadthfirst_traverse() == 'A B C D E F G '
+    with pytest.raises(Exception):
+        BinaryTree.breadthfirst_traverse()
     
 @pytest.fixture
 def theTree():

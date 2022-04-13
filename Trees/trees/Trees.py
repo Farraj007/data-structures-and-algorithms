@@ -1,6 +1,65 @@
-from curses.ascii import isdigit
 
+class Node:
+    """
+    This class for structring the node .
 
+    The Node  consists of a 'value' that holds 
+    the node's value, and a 'next' that holds the 
+    address of the next node
+
+    """
+    def __init__(self, value):
+        self.value  = value
+        self.next = None
+        
+class Queue:
+    """
+    Queue is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends.
+    One end is always used to insert data (enqueue) and the other is used to remove data (dequeue).
+    """
+    def __init__(self):
+        self.front=None
+        self.rear=None
+        self.len=0
+
+    def enqueue(self,value):
+        """
+        This function will always add new nodes in the  Queue.
+        The new node is always added before the last"rear" element of the given Queue.
+       
+        """
+        
+        if not isinstance(value, Node):
+            node = Node(value)
+        
+        if self.front is None:
+            self.front = node
+            self.rear=node
+            self.len+=1
+        else:
+            self.rear.next=node 
+            self.rear= node
+            self.len+=1
+            
+    def dequeue(self) :  
+        """
+        This function will always remove the front nodes in the  Queue.
+        The removed node is always removed from the head"front" element of the given Queue.
+       
+        """ 
+        temp = self.front        
+        
+        self.front = self.front.next 
+        
+        temp.next = None  
+        self.len -=1
+        return temp.value
+   
+    def is_empty(self):
+        """
+        checks weather the stack is empty -- returns true if its empty
+        """
+        return self.front == None 
 class TNode:
     def __init__(self, value):
         self.value = value
@@ -83,23 +142,7 @@ class BinaryTree:
             
         _walk(self.root)
         
-        return output
-    
-    def traverse_bf(self):
-        nodes = [self]
-        def _walk(node):
-            nonlocal nodes
-
-            if node.left :
-                nodes.append(node.left)
-                print(node.left.value, end=" ")
-            if node.right :
-                nodes.append(node.right)
-                print(node.right, end=" ")
-            if len(nodes) > 0:
-                _walk(nodes.pop(0))
-                
-        return nodes        
+        return output  
     def find_maximum(self):
         """
         return the maximum value from the binary tree
@@ -132,9 +175,32 @@ class BinaryTree:
         #     return int(maximum)
         # else:
         #     raise Exception("Not a number")
-    
-
+    def breadthfirst_traverse(self):
+        """
+        doing a breadth first traversal of the tree
+        input: none
+        output: print the values of the nodes of the tree in the breadth first order
+        """
+        if not self.root:
+            raise(Exception("Tree is empty !"))
         
+        output = ''
+        queue = Queue()
+        queue.enqueue(self.root)
+
+        while not queue.is_empty():
+            front = queue.dequeue()
+            output += f'{front.value} '
+        
+            if front.left:
+                queue.enqueue(front.left)
+
+            if front.right:
+                queue.enqueue(front.right)
+        
+        return output
+         
+
 class BinaryTreeSearch(BinaryTree):
     """
     a binary tree where each left node is less than its root, and each 
@@ -172,7 +238,8 @@ class BinaryTreeSearch(BinaryTree):
         if type(value) !=str:
             value = str(value)
         
-        return True if value in self.in_order() else False        
+        return True if value in self.in_order() else False   
+         
 if __name__ == "__main__":    
     node1 = TNode(1)
     node2 = TNode(2)
@@ -197,7 +264,7 @@ if __name__ == "__main__":
     print(f'In Order: {tree.in_order()} \n')
     print(f'Pre Order: {tree.pre_order()} \n')
     print(f'Post Order: {tree.post_order()} \n')
-    # print(f'Breadth First : {tree.breadth_traversal()} \n')
+    print(f'Breadth First : {tree.breadthfirst_traverse()} \n')
     print('Maximum Value : ',tree.find_maximum())
     # print(search.contains(4))
     # tree.max()
