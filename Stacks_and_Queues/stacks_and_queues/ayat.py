@@ -97,51 +97,37 @@ def DuckDuckGoose(str , k ):
         print(f'{str_queue}')
         itr = str_queue.front 
         if k == 1 :
-            while itr.next:
+            while itr.xt:
                 str_queue.dequeue()
                 itr = itr.next
             return itr.value
 
         count = 1
         itr = str_queue.front
-        # while not str_queue.is_empty():
         while itr and count < k + 1:
-            # count+= 1
-            
-            if count == k and itr.next== None :  
+            if count == k and itr.next== None : 
                 itr = str_queue.front
-                
-                # itr.next = itr.next
-                count = 1
+                itr.next.next=None   
+                print(f'{str_queue} end')  
+                str_queue.dequeue() 
+                print(f'{str_queue} end')   
                 break
             if count == k  and itr.next!= None:
+                
                 valuee = itr.next.value
                 itr.next = itr.next.next
                 itr.value = valuee
-
                 count = 1
-                print(f'{itr.value} hi')
-                print(count , itr.value)
-                print('e',itr.next.value)
                 continue
             if itr.next == None:
                 itr = str_queue.front
                 count +=1
-                print('circle',count)
                 continue
-            # if itr.next.next == None and count == k -1 :
-            #     itr.next = None
-            #     itr = str_queue.front
-            #     continue
             itr = itr.next
             count+=1
             
-            print(count)
-            print(itr.value)
             print(f'{str_queue} end')
-
-        # print(f'{str_queue}')
         return
     
 if __name__ == '__main__':
-    DuckDuckGoose('ABCDE',3)
+    DuckDuckGoose('ABCDE',)

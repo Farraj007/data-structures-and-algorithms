@@ -169,7 +169,7 @@ class Queue:
 def DuckDuckGoose(list,k):
     queue =  Queue()
     [queue.enqueue(i) for i in list ]
-    # queue2=Queue()
+    
     print('1',queue)
     counter=0
     
@@ -229,15 +229,53 @@ def getMax(list):
         print(max)
         return max
     else:
-        raise Exception("The stack has no numeric values")   
+        raise Exception("The stack has no numeric values") 
+class Node:
+    """
+    Docstring
+    """
+
+    pass
+
+class BinaryTree:
+    """
+    Docstring
+    """
+
+    def pre_order():
+        # root >> left >> right
+        pass
+
+    def in_order():
+        # left >> root >> right
+        pass
+
+    def post_order():
+        # left >> right >> root
+        pass
+
+
+
+
+class BinarySearchTree(BinaryTree):
+    """
+    Docstring
+    """
+
+    def add():
+        pass
+
+    def contains():
+        pass
+         
         
 if __name__ == '__main__':
     
-    getMax([1,5,50,20,-60,'barham'])
+    # getMax([1,5,50,20,-60,'barham'])
     # print(getMax())
-    # a=['a','b','c','d','e']
+    a=['a','b','c','d','e']
     #DuckDuckGoose(a,3)
-    # print(DuckDuckGoose(a,3))
+    print(DuckDuckGoose(a,6))
     
     # pseudo = psuedoQueue()
     # # [psuedo.enqueue for i in [1,2,3]]

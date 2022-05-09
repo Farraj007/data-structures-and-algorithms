@@ -1,4 +1,3 @@
-
 class Node:
     """
     This class for structring the node .
@@ -159,7 +158,9 @@ class BinaryTree:
         maximum = self.root.value        
         def _walk(node):
             nonlocal maximum 
-            
+            if  type(node.value) != int: 
+                raise Exception("All values must be integers !")
+        
             if node.value > maximum:
                 maximum = node.value
             
@@ -238,15 +239,74 @@ class BinaryTreeSearch(BinaryTree):
         if type(value) !=str:
             value = str(value)
         
-        return True if value in self.in_order() else False   
+        return True if value in self.in_order() else False  
+# class kNode:
+#     def __init__(self, value):
+#         self.value = value
+#         self.children=[] 
+# class K_ary_Tree:
+#     def __init__(self):
+#         self.root = None           
+def fizz_buzz_tree(tree):
+    """Takes in a tree as a single argument. Changes values throughout the tree based on Fizzbuzz logic, and returns a new tree in the same order and structure.
+    """
+    if not tree.root:
+        raise(Exception("Tree is empty !"))
+
+    newTree = BinaryTree()
+    newTree.root = tree.root 
+        
+    def _walk(node):
+        
+        if node.left:
+            _walk(node.left)
+
+        if node.right:
+            _walk(node.right)
+           
+        if  type(node.value) != int: 
+            raise Exception("All values must be integers !")
+        
+        if node.value%3==0 and node.value%5==0:
+            node.value = "FizzBuzz"
+        elif node.value%5==0:
+            node.value = "Buzz"
+        elif node.value%3==0:
+            node.value = "Fizz"
+        else:
+            node.value = str(node.value)
+
+    _walk(newTree.root)
+            
+    return newTree
+    # tree = [int(i) for i in tree.breadthfirst_traverse().strip().split()]
+    # new_tree = []
+    # for i in tree:
+    #     if i % 3 == 0 and i % 5 == 0:
+    #         i = 'FizzBuzz'
+    #         new_tree.append(i)
+    #     elif i % 3 == 0:
+    #         i = 'Fizz'
+    #         new_tree.append(i)
+    #     elif i % 5 == 0:
+    #         i = 'Buzz'
+    #         new_tree.append(i)
+    #     else:
+    #         i = str(i)
+    #         new_tree.append(i)
+    # print(new_tree)      
+    # new_binarytree = BinaryTree()
+    # [new_binarytree.add(i) for i in new_tree]
+    
+    # return new_binarytree
          
 if __name__ == "__main__":    
     node1 = TNode(1)
-    node2 = TNode(2)
+    node2 = TNode('2')
     node3 = TNode(30)
     node4 = TNode(200)
     node5 = TNode(50)
-    node6 = TNode(11)
+    node6 = TNode(3)
     node7 = TNode(40)
     
     node1.left = node2
@@ -266,9 +326,4 @@ if __name__ == "__main__":
     print(f'Post Order: {tree.post_order()} \n')
     print(f'Breadth First : {tree.breadthfirst_traverse()} \n')
     print('Maximum Value : ',tree.find_maximum())
-    # print(search.contains(4))
-    # tree.max()
-    # print(f"Height of tree = {tree.height()} \n")
-    # print(f"Total nodes = {tree.count_nodes()}\n")
-    
-    # print(f"Total leaves = {tree.count_leaf()}\n ")
+    print(fizz_buzz_tree(tree).breadthfirst_traverse())
