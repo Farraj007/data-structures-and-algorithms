@@ -240,24 +240,26 @@ class BinaryTreeSearch(BinaryTree):
             value = str(value)
         
         return True if value in self.in_order() else False  
-# class kNode:
-#     def __init__(self, value):
-#         self.value = value
-#         self.children=[] 
-# class K_ary_Tree:
-#     def __init__(self):
-#         self.root = None           
+    
+class kNode:
+    def __init__(self, value):
+        self.value = value
+        self.children=[] 
+class K_ary_Tree:
+    def __init__(self):
+        self.root = None           
 def fizz_buzz_tree(tree):
     """Takes in a tree as a single argument. Changes values throughout the tree based on Fizzbuzz logic, and returns a new tree in the same order and structure.
     """
     if not tree.root:
         raise(Exception("Tree is empty !"))
 
-    newTree = BinaryTree()
-    newTree.root = tree.root 
+    Tree = BinaryTree()
+    Tree.root = tree.root 
+    newTree=[]
         
     def _walk(node):
-        
+        nonlocal newTree
         if node.left:
             _walk(node.left)
 
@@ -268,15 +270,15 @@ def fizz_buzz_tree(tree):
             raise Exception("All values must be integers !")
         
         if node.value%3==0 and node.value%5==0:
-            node.value = "FizzBuzz"
+            newTree.append('FizzBuzz')
         elif node.value%5==0:
-            node.value = "Buzz"
+            newTree.append("Buzz")
         elif node.value%3==0:
-            node.value = "Fizz"
+            newTree.append('Fizz')
         else:
-            node.value = str(node.value)
+            newTree.append(str(node.value))
 
-    _walk(newTree.root)
+    _walk(Tree.root)
             
     return newTree
     # tree = [int(i) for i in tree.breadthfirst_traverse().strip().split()]
@@ -302,7 +304,7 @@ def fizz_buzz_tree(tree):
          
 if __name__ == "__main__":    
     node1 = TNode(1)
-    node2 = TNode('2')
+    node2 = TNode(2)
     node3 = TNode(30)
     node4 = TNode(200)
     node5 = TNode(50)
