@@ -39,8 +39,6 @@ def merge(left,right,arr):
         count2 += 1
         count3 += 1   
     
-    
-    
 if __name__ == '__main__':
     print("jhjhjhexit")
     a=[0,10,-8,5,2,5]
