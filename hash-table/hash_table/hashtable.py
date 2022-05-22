@@ -27,13 +27,9 @@ class HashTable(object):
         set(self, key, value): method that takes key and value. This method hash the key, and add the key and value pair to the table, handling collisions as needed.
 
         """
-        if type(key) != str and type(value) != str:
-                raise Exception("Key and Value must be strings")
             
         index = self.hash(key)
         
-        
-
         if self.table[index]:
             if key in self.keys():
                 for dic in self.table[index]:
