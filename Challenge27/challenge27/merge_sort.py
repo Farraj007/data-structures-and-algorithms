@@ -10,7 +10,8 @@ def Mergesort(arr):
         Mergesort(left)
         Mergesort(right)
         merge(left, right, arr)
-    return arr
+    if  not arr :    
+        raise Exception("Array is empty")
         
 def merge(left,right,arr):
     """
@@ -42,4 +43,4 @@ def merge(left,right,arr):
 if __name__ == '__main__':
     print("jhjhjhexit")
     a=[0,10,-8,5,2,5]
-    print(Mergesort(a))
+    print(Mergesort([]))
