@@ -1,10 +1,15 @@
 from hash_table.hashtable import HashTable
 import pytest
 
-
+def test_hash_table_set():
+    ht= HashTable()
+    ht.set('Hi', 'Hello')
+    assert ht.keys() == ['Hi']
+        
 def test_hash_table(hash_table):
     
     assert hash_table.get("name") == 'python'
+    
 def test_hash_table_2(hash_table):
     
     assert hash_table.get("AMAZON") == 'AWS'
