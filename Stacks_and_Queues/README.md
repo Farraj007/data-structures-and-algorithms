@@ -7,9 +7,7 @@ Stacks and Queues   implentation
 
 ## Approach & Efficiency
 Defining the classes for each data sturcture startin with the Class Node , Class Stack and Class Queue.
-
-
-
+#
 ## API
 # Stack
 ### .push 
