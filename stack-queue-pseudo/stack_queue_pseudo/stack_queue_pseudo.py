@@ -2,7 +2,7 @@ class Queue:
     def __init__(self):
         self.s1 = []
         self.s2 = []
- 
+        
     def enqueue(self, x):
     
         while len(self.s1):
@@ -17,7 +17,7 @@ class Queue:
             self.s2.pop()
  
     def dequeue(self):
-         
+                
         if len(self.s1) == 0:
             print("Q is Empty")
                  

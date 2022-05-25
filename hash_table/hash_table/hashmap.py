@@ -1,4 +1,4 @@
-from hash_table.hashtable import HashTable
+from hashtable import HashTable
 import re
 
 def repeated_word(text):
@@ -11,13 +11,14 @@ def repeated_word(text):
     """
     ht = HashTable()
     words = list(map(lambda word : word.lower(), re.findall(r"\w+", text)))
+    count = []
     if len(list(words)) <= 1:
         raise Exception("String provided contains an invalid number of keys.")
     for word in words:
         if ht.contains(word):
             return word
         ht.set(word, None)
-    return 
+    return  
 
 if __name__=="__main__":
 

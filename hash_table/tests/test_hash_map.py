@@ -12,8 +12,7 @@ def test_empty_string():
         
     with pytest.raises(Exception):    
         repeated_word('me')  
-
-
+        
 def test_string_1():
     assert repeated_word(text1) == 'a'
 

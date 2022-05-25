@@ -1,4 +1,3 @@
-
 class Node:
     """
     This class for structring the node .
@@ -11,8 +10,7 @@ class Node:
     def __init__(self, value):
         self.value  = value
         self.next = None
-        
-        
+               
 class Stack:
     """
     Implementation of Stack ADT based on Py's list.
@@ -20,6 +18,7 @@ class Stack:
     represent the base.As the stack grows,items are appended to the end of the list and when items are poppe
     d,they are removed from the same end.
     """
+    
     def __init__(self, node = None):
         self.top = node   
          
@@ -53,7 +52,7 @@ class Stack:
              
         node.next = self.top 
         self.top = node  
-        
+      
     def pop(self): 
         """
         This function will remove the top node on the stack .. by making the top for the next value and assign the previous top to none 
@@ -87,17 +86,19 @@ class Stack:
         checks weather the stack is empty -- returns true if its empty
         """
         return self.top == None  
-    
-  
+      
 class Queue:
+    
     """
     Queue is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends.
     One end is always used to insert data (enqueue) and the other is used to remove data (dequeue).
     """
+    
     def __init__(self):
         self.front=None
         self.rear=None
         self.len=0
+        
     def __str__(self):    
         return self.to_string()    
     
@@ -118,6 +119,7 @@ class Queue:
             return output
         
     def enqueue(self,value):
+        
         """
         This function will always add new nodes in the  Queue.
         The new node is always added before the last"rear" element of the given Queue.
@@ -136,7 +138,8 @@ class Queue:
             self.rear= node
             self.len+=1
             
-    def dequeue(self) :  
+    def dequeue(self) : 
+         
         """
         This function will always remove the front nodes in the  Queue.
         The removed node is always removed from the head"front" element of the given Queue.
@@ -151,6 +154,7 @@ class Queue:
         return temp.value
     
     def peek(self):
+        
         """
         This function will return the value of the Head Node /The front value.
         Error will raises if the queue is empty
@@ -188,9 +192,6 @@ def DuckDuckGoose(list,k):
         
     return queue    
      
-    
-         
-    
 def validateBrackets(string):
     
         """
@@ -214,6 +215,7 @@ def validateBrackets(string):
             return False
         
 def getMax(list):
+    
     stack = Stack()
     [stack.push(i) for i in list if type(i) == int]
     if not stack.top:
@@ -230,11 +232,11 @@ def getMax(list):
         return max
     else:
         raise Exception("The stack has no numeric values") 
+    
 class Node:
     """
     Docstring
     """
-
     pass
 
 class BinaryTree:
@@ -254,9 +256,6 @@ class BinaryTree:
         # left >> right >> root
         pass
 
-
-
-
 class BinarySearchTree(BinaryTree):
     """
     Docstring
@@ -267,8 +266,7 @@ class BinarySearchTree(BinaryTree):
 
     def contains():
         pass
-         
-        
+                
 if __name__ == '__main__':
     
     # getMax([1,5,50,20,-60,'barham'])

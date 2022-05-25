@@ -1,6 +1,3 @@
-from ast import Pass
-
-
 class Node:
     """
     This class for structring the nodes inside the linked list .
@@ -8,16 +5,14 @@ class Node:
     The Node  consists of a 'value' that holds 
     the node's value, and a 'next' that holds the 
     address of the next node
-
     """
     def __init__(self,value):
         self.value = value
         self.next = None
        
-
     def __str__ (self):
         return self.value  
-
+    
 class  LinkedList:
     
     def __init__(self):
@@ -166,13 +161,12 @@ class  LinkedList:
         current = self.head
         
         if current.value == target_data.value:
-            
             new_node = Node(new_data)
             new_node.next = self.head
             self.head=new_node
-            return 0  
+            return 0 
          
-        while current.next is not None:
+        while current.next:
             if current.next.value == target_data.value:
                 new_node = Node(new_data)
                 new_node.next = current.next
@@ -218,9 +212,6 @@ class  LinkedList:
         List2_curr = List2.head
  
         while List1_curr != None and List2_curr != None:
-            # List1.Add_after(List1_curr,List2_curr)
-            # List1_curr=List1_curr.next.next
-            # List2_curr=List2_curr.next
             
             List1_next = List1_curr.next             
             List2_next = List2_curr.next
@@ -232,7 +223,8 @@ class  LinkedList:
             List1_curr = List1_next
             List2_curr = List2_next
             List2.head = List2_curr
-        if List2_curr is not None:
+            
+        if List2_curr :
             List1.Append(List2_curr)  
     
         return List1
