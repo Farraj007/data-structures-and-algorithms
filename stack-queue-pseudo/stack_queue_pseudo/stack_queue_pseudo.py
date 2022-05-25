@@ -7,7 +7,7 @@ class psuedoQueue:
     def __init__(self):
         self.s1 = []
         self.s2 = []
- 
+        
     def enqueue(self, x):
         """
         Inserts value into the PseudoQueue, using a first-in, first-out approach.
@@ -24,10 +24,7 @@ class psuedoQueue:
             self.s2.pop()
  
     def dequeue(self):
-        """
-        Extracts a value from the PseudoQueue, using a first-in, first-out approach.
-        """
-         
+
         if len(self.s1) == 0:
             print("Q is Empty")
                  

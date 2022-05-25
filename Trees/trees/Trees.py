@@ -247,7 +247,8 @@ class kNode:
         self.children=[] 
 class K_ary_Tree:
     def __init__(self):
-        self.root = None           
+        self.root = None   
+                
 def fizz_buzz_tree(tree):
     """Takes in a tree as a single argument. Changes values throughout the tree based on Fizzbuzz logic, and returns a new tree in the same order and structure.
     """
@@ -281,27 +282,31 @@ def fizz_buzz_tree(tree):
     _walk(Tree.root)
             
     return newTree
-    # tree = [int(i) for i in tree.breadthfirst_traverse().strip().split()]
-    # new_tree = []
-    # for i in tree:
-    #     if i % 3 == 0 and i % 5 == 0:
-    #         i = 'FizzBuzz'
-    #         new_tree.append(i)
-    #     elif i % 3 == 0:
-    #         i = 'Fizz'
-    #         new_tree.append(i)
-    #     elif i % 5 == 0:
-    #         i = 'Buzz'
-    #         new_tree.append(i)
-    #     else:
-    #         i = str(i)
-    #         new_tree.append(i)
-    # print(new_tree)      
-    # new_binarytree = BinaryTree()
-    # [new_binarytree.add(i) for i in new_tree]
+ 
+def second_maximum(bst):
+
+    curr = bst.root
+    if curr  == None :
+        raise Exception('bst is empty')
     
-    # return new_binarytree
-         
+    while curr:
+        scnd_max=0
+        
+        if bst.right is None and bst.left:
+            curr= bst.left
+            return
+       
+        if curr.right :
+            scnd_max =curr
+            if curr.right.right:
+                scnd_max= curr.right
+            curr = curr.right.right
+            return
+        else:
+            scnd_max=curr.left
+            
+        return
+
 if __name__ == "__main__":    
     node1 = TNode(1)
     node2 = TNode(2)
@@ -321,11 +326,13 @@ if __name__ == "__main__":
     tree = BinaryTree() 
     tree.root = node1
     search = BinaryTreeSearch()
-    search.root=TNode(55)
+    search.root=TNode(55)            
     [search.add(i) for i in [1,32,45,65,200,30,22,4]]
+    
     print(f'In Order: {tree.in_order()} \n')
     print(f'Pre Order: {tree.pre_order()} \n')
     print(f'Post Order: {tree.post_order()} \n')
     print(f'Breadth First : {tree.breadthfirst_traverse()} \n')
     print('Maximum Value : ',tree.find_maximum())
     print(fizz_buzz_tree(tree).breadthfirst_traverse())
+    second_maximum(search)

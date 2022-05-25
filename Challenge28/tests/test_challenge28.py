@@ -17,6 +17,7 @@ def test_nearly_sorted():
     QuickSort(lst, 0, 5)
     assert lst == [100, 200, 300, 400, 500, 600]
 
+
 def test_reverse_sorted():
     lst = [20, 18, 12, 8, 5, -2]
     QuickSort(lst, 0, 5)
