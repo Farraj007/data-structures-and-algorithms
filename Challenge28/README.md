@@ -13,5 +13,3 @@ Once you are done with your article, code a working, tested implementation of Qu
 [Code](./challlenge28/quick_sort.py)
 
 [Test](./tests/test_challenge28.py)
-
-[Blog](./BLOG.md)
