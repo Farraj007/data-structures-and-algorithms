@@ -1,7 +1,13 @@
+from array import array
+
+
 def QuickSort(arr, left, right):
     """
     QuickSort function
     """
+    if len(arr) == 0:
+        raise Exception("Array is empty")
+    
     if left < right:
         position = Partition(arr, left, right)
         QuickSort(arr, left, position - 1)

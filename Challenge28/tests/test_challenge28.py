@@ -1,4 +1,5 @@
 from challenge28.quick_sort import QuickSort
+import pytest
 """
 Reverse-sorted: [20,18,12,8,5,-2]
 Few uniques: [5,12,7,5,5,7]
@@ -34,3 +35,7 @@ def test_quick_sort_zeros_and_negative():
     lst = [-100, -4, -2, 0, -1]
     QuickSort(lst, 0, 4)
     assert lst == [-100, -4, -2, -1, 0]
+def test_exception_1():
+    lst=[]
+    with pytest.raises(Exception):
+        QuickSort(lst, 0, 5)

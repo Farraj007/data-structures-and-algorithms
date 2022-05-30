@@ -6,7 +6,7 @@ Once you are done with your article, code a working, tested implementation of Qu
 ## Approach & Efficiency
 
 - Space complexity Big O(log(n))
-- Time complexity Big O(n^2)
+- Time complexity Big O(1)
 
 ## Code
 
