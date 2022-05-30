@@ -10,17 +10,18 @@ Internally, utilize 2 Stack instances to create and manage the queue
 
 - Queue: creates a queue with 2 inctases of stacks
 
----
+[code](./stack_queue_pseudo/stack_queue_pseudo.py)
+
+## Whiteboard
+
+[Whiteboard](./psuedowb.jpg)
 
 ## Approach & Efficiency
 
-Big(o) for both time and space in most methods is o(1), since we only deal with one element at a time
+Big(o) for both time and space in the dequeue method is o(1),the enqueue has Big (o) of O(n)for time and space
 
----
 
 ## API
-
-
 
 - Queue class : This class creates a Queue with a default Front and Back of (None)s
 
