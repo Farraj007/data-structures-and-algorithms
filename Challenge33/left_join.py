@@ -3,7 +3,7 @@ from hashtable import HashTable
 def left_join(left_hash, right_hash):
     if not isinstance(left_hash, HashTable) or not isinstance(right_hash, HashTable):
         raise Exception("Arguments must be hashmaps !")
-    
+       
 if __name__ == '__main__':
 
     left_hash = HashTable()
