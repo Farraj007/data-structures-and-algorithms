@@ -1,6 +1,10 @@
 # Challenge Summary
 
-create a function called tree_intersection  that takes in two trees and returns a list of all the values that are common between the two trees.
+create a function called tree_intersection that takes in two trees and returns a list of all the values that are common between the two trees.
+
+## Whiteboard Process
+
+![Image](./intersection.jpg)
 
 ## Approach & Efficiency
 
