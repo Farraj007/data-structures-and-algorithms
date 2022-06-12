@@ -1,4 +1,4 @@
-from hashtable import HashTable
+from hash_table.hashtable import HashTable
 import re
 
 def repeated_word(text):
@@ -9,16 +9,31 @@ def repeated_word(text):
         Returns:
             str: The first word that is repeated in among the words found in the passed string.
     """
+    words = ''
     ht = HashTable()
-    words = list(map(lambda word : word.lower(), re.findall(r"\w+", text)))
-    count = []
-    if len(list(words)) <= 1:
-        raise Exception("String provided contains an invalid number of keys.")
-    for word in words:
-        if ht.contains(word):
-            return word
-        ht.set(word, None)
-    return  
+    for word in text:
+        if ord(word.lower()) in range(ord('a'), ord('z') + 1):
+            words += word.lower()
+        elif len(words):
+            if ht.contains(words):
+                return words
+            else:
+                ht.set(words, None)
+                words = ''
+    if len(words) and ht.contains(words):
+        return words
+    else:
+        raise Exception('No repeated words found!')
+
+    # ht = HashTable()
+    # words = list(map(lambda word : word.lower(), re.findall(r"\w+", text)))
+    # if len(list(words)) <= 1:
+    #     raise Exception("String provided contains an invalid number of keys.")
+    # for word in words:
+    #     if ht.contains(word):
+    #         return word
+    #     ht.set(word, None)
+    # return  
 
 if __name__=="__main__":
 
